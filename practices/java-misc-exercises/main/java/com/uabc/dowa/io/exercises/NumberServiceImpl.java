@@ -42,6 +42,20 @@ public class NumberServiceImpl implements NumberService{
 
     @Override
     public int findNumberInSortedArray(int[] arr, int x) {
-        return 0;
+        int begin = 0, end = arr.length-1;
+
+        while(end >= begin){
+            int middle = begin + ((end - begin / 2));
+            if(arr[middle] == x){
+                return middle;
+            }
+            else if(arr[middle] < x){
+                begin = middle + 1;
+            }
+            else if(arr[middle] > x){
+                end = middle - 1;
+            }
+        }
+        return -1;
     }
 }
